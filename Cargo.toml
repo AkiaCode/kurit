@@ -2,6 +2,14 @@
 resolver = "2"
 members = ["crates/*"]
 
+[workspace.dependencies]
+deno_core = { version = "0.221.0", default-features = false }
+
+kurit-js = { path = "./crates/kurit-js" }
+kurit-ops = { path = "./crates/kurit-ops" }
+kurit-runtime = { path = "./crates/kurit-runtime"}
+kurit-template = { path = "./crates/kurit-template"}
+
 # https://github.com/johnthagen/min-sized-rust
 [profile.release]
 strip = true

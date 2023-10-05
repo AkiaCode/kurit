@@ -1,5 +1,4 @@
-pub const NORMAILZE: &'static str = include_str!("normailze.css");
-
+pub const NORMAILZE: &'static str = include_str!("deps/normailze.css/normalize.css");
 pub trait Template {
     fn css() -> String;
 }

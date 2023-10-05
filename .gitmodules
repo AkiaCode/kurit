@@ -1,0 +1,3 @@
+[submodule "crates/kurit-template/src/deps/normailze.css"]
+	path = crates/kurit-template/src/deps/normailze.css
+	url = https://github.com/necolas/normalize.css.git

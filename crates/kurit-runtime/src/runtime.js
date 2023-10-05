@@ -4,10 +4,10 @@
   
     globalThis.console = {
       log: (...args) => {
-        core.print(`[KuritLog]: ${args}\n`, false)
+        core.print(`[kurit-log]: ${args}\n`, false)
       },
       error: (...args) => {
-        core.print(`[KuritError]: ${args}\n`, true)
+        core.print(`[kurit-error]: ${args}\n`, true)
       },
     }
 
@@ -23,5 +23,6 @@
           return `Kurit\n\nVersion: ${Kurit.version}\nArgs: ${Kurit.args}`
         }
     }
-
+  
+  Deno = null
 })(globalThis)

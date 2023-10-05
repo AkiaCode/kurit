@@ -6,8 +6,8 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-deno_core = "0.221.0"
-tokio = { version = "1.32.0" }
+deno_core.workspace = true
+tokio = { version = "1.32.0", default-features = false }
 
-kurit-js = { path = "../kurit-js" }
-kurit-ops = { path = "../kurit-ops" }
+kurit-js.workspace = true
+kurit-ops.workspace = true

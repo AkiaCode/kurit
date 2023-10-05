@@ -1,1 +1,3 @@
-console.log(Kurit.about())
+for (const arg of Kurit.args) {
+    console.log(arg)
+}
