@@ -1,5 +1,5 @@
 [package]
-name = "kurit-runtime"
+name = "kurit-ops"
 version = "0.1.0"
 edition = "2021"
 
@@ -7,7 +7,3 @@ edition = "2021"
 
 [dependencies]
 deno_core = "0.221.0"
-tokio = { version = "1.32.0" }
-
-kurit-js = { path = "../kurit-js" }
-kurit-ops = { path = "../kurit-ops" }

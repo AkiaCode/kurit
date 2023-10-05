@@ -1,1 +1,1 @@
-console.log(Kurit.version)
+console.log(Kurit.about())
