@@ -2,19 +2,19 @@
 static website generator
 
 ## Clone
-```bash
+```sh
 ~/$ git clone --recursive https://github.com/AkiaCode/kurit && cd ./kurit
 ```
 
 ## Run
-```bash
+```sh
 ~/kurit$ cargo run --release
 ```
 
 ## Features (not yet)
 
 ### Single executable
-```bash
+```sh
 ~/kurit$ ldd ./target/debug/kurit
 	linux-vdso.so.1 (0x00007ffddadfe000)
 	libgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007fe2123e0000)
