@@ -1,0 +1,10 @@
+{
+    "rust-analyzer.linkedProjects": [
+        "./crates/kurit-template/Cargo.toml",
+        "./crates/kurit/Cargo.toml",
+        "./crates/kurit/Cargo.toml",
+        "./crates/kurit/Cargo.toml",
+        "./crates/kurit/Cargo.toml"
+    ],
+    "rust-analyzer.showUnlinkedFileNotification": false
+}
