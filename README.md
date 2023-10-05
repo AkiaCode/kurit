@@ -1,6 +1,16 @@
 # Kurit
 static website generator
 
+## Clone
+```bash
+~/$ git clone --recursive https://github.com/AkiaCode/kurit && cd ./kurit
+```
+
+## Run
+```bash
+~/kurit$ cargo run --release
+```
+
 ## Features (not yet)
 
 ### Single executable
