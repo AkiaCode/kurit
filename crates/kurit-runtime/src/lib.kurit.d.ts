@@ -2,11 +2,11 @@ declare namespace Kurit {
     /**
      * Kurit Args
      */
-    export const args: Array<String>
+    export const args: String[]
     /**
      * Kurit Version
      */
-    export const version: Array<String>
+    export const version: String
     /**
      * Markdown to HTML
      * @param contents Markdown File Contents
@@ -17,8 +17,8 @@ declare namespace Kurit {
      * Kurit File System API
      */
     export namespace fs {
-        export function readFile(path: String): String | Error
-        export function writeFile(path: String, contents: String): void | Error
-        export function removeFile(path: String): void | Error
+        export async function readFile(path: String): Promise<String>
+        export async function writeFile(path: String, contents: String): Promise<void>
+        export async function removeFile(path: String): Promise<void>
     }
 }

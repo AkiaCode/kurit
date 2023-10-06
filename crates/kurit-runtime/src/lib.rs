@@ -36,7 +36,7 @@ impl Runtime {
             .build()
             .unwrap();
         if let Err(error) = runtime.block_on(self.run_js("src/cli.js", current_dir)) {
-            eprintln!("error: {}", error);
+            eprintln!("{}", error);
         }
     }
 }
