@@ -38,5 +38,5 @@
       }
     }
   
-  Deno = null
+  Deno = null // We Love Deno!
 })(globalThis)
