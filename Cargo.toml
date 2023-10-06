@@ -13,7 +13,7 @@ kurit-template = { path = "./crates/kurit-template"}
 
 # https://github.com/johnthagen/min-sized-rust
 [profile.release]
-#strip = true
+strip = true
 opt-level = "z"
 lto = true
 codegen-units = 1
