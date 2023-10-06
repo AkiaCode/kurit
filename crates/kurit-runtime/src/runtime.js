@@ -12,16 +12,30 @@
     }
 
     globalThis.Kurit = {
-        get version() {
-            return "0.0.0-alpha"
+      fs: { // File System
+        readFile: (path) => {
+          return ops.op_read_file(path)
         },
-        get args () {
-          const args = ops.op_args()
-          return args.split(' ') // String to Array
+        writeFile: (path, contents) => {
+          return ops.op_write_file(path, contents)
         },
-        about() {
-          return `Kurit\n\nVersion: ${Kurit.version}\nArgs: ${Kurit.args}`
-        }
+        removeFile: (path) => {
+          return ops.op_remove_file(path)
+        },
+      },
+      md_to_html: (contents) => {
+        return ops.op_md_to_html(contents)
+      },
+      get version() {
+          return "0.0.0-alpha"
+      },
+      get args() {
+        const args = ops.op_args()
+        return args.split(' ') // String to Array
+      },
+      about() {
+        return `Kurit\n\nVersion: ${Kurit.version}\nArgs: ${Kurit.args}`
+      }
     }
   
   Deno = null
