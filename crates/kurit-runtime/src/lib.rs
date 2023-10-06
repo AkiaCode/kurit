@@ -1,7 +1,6 @@
 use std::{path::Path, rc::Rc};
 
-use deno_core::{error::AnyError, Extension, Op};
-use kurit_ops::{op_args, op_md_to_html, op_read_file, op_remove_file, op_write_file};
+use deno_core::error::AnyError;
 
 pub struct Runtime {}
 
@@ -14,18 +13,7 @@ impl Runtime {
         let main_module = deno_core::resolve_path(file_path, current_dir)?;
         let mut js_runtime = deno_core::JsRuntime::new(deno_core::RuntimeOptions {
             module_loader: Some(Rc::new(deno_core::FsModuleLoader)),
-            extensions: vec![Extension {
-                name: "kuritjs",
-                ops: vec![
-                    op_args::DECL,
-                    op_md_to_html::DECL,
-                    op_read_file::DECL,
-                    op_write_file::DECL,
-                    op_remove_file::DECL,
-                ]
-                .into(),
-                ..Default::default()
-            }],
+            extensions: vec![kurit_ops::ops_extension()],
             ..Default::default()
         });
         js_runtime
