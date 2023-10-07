@@ -35,6 +35,9 @@
       log: (...args) => {
         core.print(`[kurit-log]: ${args}\n`, false)
       },
+      warn: (...args) => {
+        core.print(`[kurit-warn]: ${args}\n`, false)
+      },
       error: (...args) => {
         core.print(`[kurit-error]: ${args}\n`, true)
       },
