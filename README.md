@@ -6,11 +6,21 @@ static website generator
 ~/$ git clone --recursive https://github.com/AkiaCode/kurit && cd ./kurit
 ```
 
+## Build
+```sh
+~/kurit % cargo run --release -- build ./tests/profile.md
+   Compiling kurit-ops v0.1.0 (/Volumes/Seritka/github/kurit/crates/kurit-ops)
+   Compiling kurit-runtime v0.1.0 (/Volumes/Seritka/github/kurit/crates/kurit-runtime)
+   Compiling kurit v0.1.0 (/Volumes/Seritka/github/kurit/crates/kurit)
+    Finished release [optimized] target(s) in 9.78s
+     Running `target/release/kurit build ./tests/profile.md`
+Fin.
+```
+
 ## Run
 ```sh
 ~/kurit$ cargo run --release
 ```
-
 ## Features (not yet)
 
 ### Single executable

@@ -2,6 +2,7 @@ use deno_core::{
     error::{generic_error, AnyError},
     op2, Extension, Op, OpState,
 };
+use markdown::Options;
 mod fs;
 
 pub fn ops_extension() -> Extension {
@@ -37,6 +38,13 @@ fn op_args(_state: &mut OpState) -> String {
 #[op2]
 #[string]
 fn op_md_to_html(#[string] contents: &str) -> Result<String, AnyError> {
-    return markdown::to_html_with_options(contents, &markdown::Options::gfm())
+    return markdown::to_html_with_options(contents, &Options {
+        compile: markdown::CompileOptions {
+          allow_dangerous_html: true,
+          allow_dangerous_protocol: true,
+          ..markdown::CompileOptions::default()
+        },
+        ..Options::default()
+    })
         .or_else(|err| Err(generic_error(err)));
 }

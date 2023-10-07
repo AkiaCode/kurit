@@ -9,7 +9,8 @@ switch (args[0]) { // SubCommands
             break
         }
         const contents = Kurit.md_to_html(await Kurit.fs.readFile(args[1]))
-        console.log(contents)
+        await Kurit.fs.writeFile(args[1].replace('.md', '.html'), contents)
+        console.log('Fin.')
         break
     case 'version':
         console.log(Kurit.version)
