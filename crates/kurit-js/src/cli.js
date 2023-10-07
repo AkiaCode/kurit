@@ -12,7 +12,7 @@ switch (args[0]) { // SubCommands
         const filename = path.substring(path.lastIndexOf('/')+1).replace('.md', '')
         const contents = Kurit.md_to_html(filename, await Kurit.fs.readFile(path))
         await Kurit.fs.writeFile(path.replace('.md', '.html'), contents)
-        console.log('Fin.')
+        console.log('Finish...🚀')
         break
     case 'version':
         console.log(Kurit.version)
