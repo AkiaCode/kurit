@@ -42,8 +42,8 @@
         core.print(`[kurit-error]: ${args}\n`, true)
       },
       // Kurit HTML
-      md_to_html: (contents) => {
-        return ops.op_md_to_html(contents)
+      md_to_html: (name, contents) => {
+        return ops.op_md_to_html(name, contents)
       },
       // Kurit Utils
       get version() { // Kurit Runtime Version

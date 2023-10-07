@@ -20,10 +20,11 @@ declare namespace Kurit {
     export function error(...args: any): void
     /**
      * Markdown to HTML
+     * @param name WebSite Name
      * @param contents Markdown File Contents
      * @returns {(String|Error)}
      */
-    export function md_to_html(contents: String): String | Error
+    export function md_to_html(name: String, contents: String): String | Error
     /**
      * Kurit File System API
      */

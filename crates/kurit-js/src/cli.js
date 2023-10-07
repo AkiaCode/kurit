@@ -8,8 +8,10 @@ switch (args[0]) { // SubCommands
             console.error('File Not Found')
             break
         }
-        const contents = Kurit.md_to_html(await Kurit.fs.readFile(args[1]))
-        await Kurit.fs.writeFile(args[1].replace('.md', '.html'), contents)
+        const path = args[1]
+        const filename = path.substring(path.lastIndexOf('/')+1).replace('.md', '')
+        const contents = Kurit.md_to_html(filename, await Kurit.fs.readFile(path))
+        await Kurit.fs.writeFile(path.replace('.md', '.html'), contents) // FUCK YOU MOTHERFUCKER
         console.log('Fin.')
         break
     case 'version':

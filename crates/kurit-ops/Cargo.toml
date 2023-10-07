@@ -8,4 +8,6 @@ edition = "2021"
 [dependencies]
 deno_core.workspace = true
 tokio.workspace = true
+kurit-template.workspace = true
+
 markdown = "1.0.0-alpha.14"

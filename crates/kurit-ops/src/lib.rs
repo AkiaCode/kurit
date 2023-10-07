@@ -2,6 +2,7 @@ use deno_core::{
     error::{generic_error, AnyError},
     op2, Extension, Op, OpState,
 };
+use kurit_template::{KuritDefault, Template};
 use markdown::Options;
 mod fs;
 
@@ -25,7 +26,7 @@ pub fn ops_extension() -> Extension {
 #[op2]
 #[string]
 fn op_version() -> String {
-    return "0.1.0-beta".into()
+    return "0.1.0-beta".into();
 }
 
 #[op2]
@@ -37,14 +38,19 @@ fn op_args(_state: &mut OpState) -> String {
 
 #[op2]
 #[string]
-fn op_md_to_html(#[string] contents: &str) -> Result<String, AnyError> {
-    return markdown::to_html_with_options(contents, &Options {
-        compile: markdown::CompileOptions {
-          allow_dangerous_html: true,
-          allow_dangerous_protocol: true,
-          ..markdown::CompileOptions::default()
+fn op_md_to_html(#[string] name: String, #[string] contents: &str) -> Result<String, AnyError> {
+    let html = markdown::to_html_with_options(
+        contents,
+        &Options {
+            compile: markdown::CompileOptions {
+                allow_dangerous_html: true,
+                allow_dangerous_protocol: true,
+                ..markdown::CompileOptions::default()
+            },
+            ..Options::default()
         },
-        ..Options::default()
-    })
-        .or_else(|err| Err(generic_error(err)));
+    )
+    .or_else(|err| Err(generic_error(err)))?;
+    // TODO: Change Template API
+    return Ok(KuritDefault::html(name, html));
 }
