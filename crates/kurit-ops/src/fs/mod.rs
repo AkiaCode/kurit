@@ -1,5 +1,11 @@
 use deno_core::{error::AnyError, op2};
 
+#[op2]
+#[string]
+pub fn op_fs_version() -> String {
+    return "0.0.1-alpha".into()
+}
+
 #[op2(async)]
 #[string]
 pub async fn op_read_file(#[string] path: String) -> Result<String, AnyError> {

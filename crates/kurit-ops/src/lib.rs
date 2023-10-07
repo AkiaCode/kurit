@@ -8,8 +8,10 @@ pub fn ops_extension() -> Extension {
     Extension {
         name: "kuritjs",
         ops: vec![
+            op_version::DECL,
             op_args::DECL,
             op_md_to_html::DECL,
+            crate::fs::op_fs_version::DECL,
             crate::fs::op_read_file::DECL,
             crate::fs::op_write_file::DECL,
             crate::fs::op_remove_file::DECL,
@@ -17,6 +19,12 @@ pub fn ops_extension() -> Extension {
         .into(),
         ..Default::default()
     }
+}
+
+#[op2]
+#[string]
+fn op_version() -> String {
+    return "0.1.0-beta".into()
 }
 
 #[op2]

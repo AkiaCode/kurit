@@ -8,6 +8,17 @@ declare namespace Kurit {
      */
     export const version: String
     /**
+     * Kurit About
+     */
+    export function about(): String
+    /**
+     * Kurit Console API
+     * @param args
+     */
+    export function log(...args: any): void
+    export function warn(...args: any): void
+    export function error(...args: any): void
+    /**
      * Markdown to HTML
      * @param contents Markdown File Contents
      * @returns {(String|Error)}
@@ -16,9 +27,22 @@ declare namespace Kurit {
     /**
      * Kurit File System API
      */
-    export namespace fs {
-        export async function readFile(path: String): Promise<String>
-        export async function writeFile(path: String, contents: String): Promise<void>
-        export async function removeFile(path: String): Promise<void>
+    export module fs {
+        export function readFile(path: String): Promise<String>
+        export function writeFile(path: String, contents: String): Promise<void>
+        export function removeFile(path: String): Promise<void>
+        /**
+         * KuritFS Version
+         */
+        export const version: String
+    }
+    /**
+     * (Private) Kurit Ops API
+     */
+    module ops {
+        /**
+         * KuritOps Version
+         */
+        const version: String
     }
 }

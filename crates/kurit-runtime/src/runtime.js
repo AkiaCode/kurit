@@ -4,15 +4,15 @@
   
     globalThis.console = {
       log: (...args) => {
-        core.print(`[kurit-log]: ${args}\n`, false)
+        core.print(`${args}\n`, false)
       },
       error: (...args) => {
-        core.print(`[kurit-error]: ${args}\n`, true)
+        core.print(`KuritError: ${args}\n`, true)
       },
     }
 
     globalThis.Kurit = {
-      fs: { // File System
+      fs: { // Kurit File System
         readFile: (path) => {
           return ops.op_read_file(path)
         },
@@ -22,21 +22,38 @@
         removeFile: (path) => {
           return ops.op_remove_file(path)
         },
+        get version() { // Kurit FS Version
+          return ops.op_fs_version()
+        },
       },
+      ops: { // Kurit Ops
+        get version() { // Kurit Ops Version
+          return ops.op_version()
+        }
+      },
+      // Kurit Console
+      log: (...args) => {
+        core.print(`[kurit-log]: ${args}\n`, false)
+      },
+      error: (...args) => {
+        core.print(`[kurit-error]: ${args}\n`, true)
+      },
+      // Kurit HTML
       md_to_html: (contents) => {
         return ops.op_md_to_html(contents)
       },
-      get version() {
-          return "0.0.0-alpha"
+      // Kurit Utils
+      get version() { // Kurit Runtime Version
+        return "0.1.0"
       },
       get args() {
         const args = ops.op_args()
         return args.split(' ') // String to Array
       },
       about() {
-        return `Kurit\n\nVersion: ${Kurit.version}\nArgs: ${Kurit.args}`
+        return `Kurit Version\n\nKuritFS: ${Kurit.fs.version}\nKuritOps: ${Kurit.ops.version}\nKuritRuntime: ${Kurit.version}`
       }
     }
   
-  Deno = null // We Love Deno!
+  delete Deno // We Love Deno!
 })(globalThis)
