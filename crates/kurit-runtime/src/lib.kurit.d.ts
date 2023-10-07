@@ -10,7 +10,7 @@ declare namespace Kurit {
     /**
      * Kurit About
      */
-    export function about(): String
+    export const about: String
     /**
      * Kurit Console API
      * @param args

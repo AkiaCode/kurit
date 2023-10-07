@@ -8,7 +8,7 @@ static website generator
 
 ## Build
 ```sh
-~/kurit % cargo run --release -- build ./tests/profile.md
+~/kurit$ cargo run --release -- build ./tests/profile.md
    Compiling kurit-ops v0.1.0 (/Volumes/Seritka/github/kurit/crates/kurit-ops)
    Compiling kurit-runtime v0.1.0 (/Volumes/Seritka/github/kurit/crates/kurit-runtime)
    Compiling kurit v0.1.0 (/Volumes/Seritka/github/kurit/crates/kurit)

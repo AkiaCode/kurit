@@ -53,7 +53,7 @@
         const args = ops.op_args()
         return args.split(' ') // String to Array
       },
-      about() {
+      get about() {
         return `Kurit Version\n\nKuritFS: ${Kurit.fs.version}\nKuritOps: ${Kurit.ops.version}\nKuritRuntime: ${Kurit.version}`
       }
     }

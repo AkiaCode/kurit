@@ -11,7 +11,7 @@ kurit-ops = { path = "./crates/kurit-ops" }
 kurit-runtime = { path = "./crates/kurit-runtime"}
 kurit-template = { path = "./crates/kurit-template"}
 
-# https://github.com/johnthagen/min-sized-rust
+# ref: https://github.com/johnthagen/min-sized-rust
 [profile.release]
 strip = true
 opt-level = "z"

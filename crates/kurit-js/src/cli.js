@@ -18,7 +18,7 @@ switch (args[0]) { // SubCommands
         console.log(Kurit.version)
         break
     case 'about':
-        console.log(Kurit.about())
+        console.log(Kurit.about)
         break
     case 'help': // Help Command
     default:
