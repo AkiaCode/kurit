@@ -14,7 +14,7 @@ static website generator
    Compiling kurit v0.1.0 (/Volumes/Seritka/github/kurit/crates/kurit)
     Finished release [optimized] target(s) in 9.78s
      Running `target/release/kurit build ./tests/profile.md`
-Fin.
+Finish...🚀
 ```
 
 ## Run
