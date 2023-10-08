@@ -45,6 +45,9 @@
       md_to_html: (name, contents) => {
         return ops.op_md_to_html(name, contents)
       },
+      devserver: (path) => {
+        return ops.op_devserver(path)
+      },
       // Kurit Utils
       get version() { // Kurit Runtime Version
         return "0.1.0"

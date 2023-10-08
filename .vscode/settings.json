@@ -5,7 +5,8 @@
         "./crates/kurit-js/Cargo.toml",
         "./crates/kurit-ops/Cargo.toml",
         "./crates/kurit-runtime/Cargo.toml",
-        "./crates/kurit-template/Cargo.toml"
+        "./crates/kurit-template/Cargo.toml",
+        "./crates/kurit-devserver/Cargo.toml",
     ],
     "rust-analyzer.showUnlinkedFileNotification": false,
     // Deno

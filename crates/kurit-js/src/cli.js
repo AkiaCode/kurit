@@ -8,11 +8,24 @@ switch (args[0]) { // SubCommands
             console.error('File Not Found')
             break
         }
-        const path = args[1]
-        const filename = path.substring(path.lastIndexOf('/')+1).replace('.md', '')
-        const contents = Kurit.md_to_html(filename, await Kurit.fs.readFile(path))
-        await Kurit.fs.writeFile(path.replace('.md', '.html'), contents)
-        console.log('Finish...🚀')
+        {
+            const path = args[1]
+            const filename = path.substring(path.lastIndexOf('/')+1).replace('.md', '')
+            const contents = Kurit.md_to_html(filename, await Kurit.fs.readFile(path))
+            await Kurit.fs.writeFile(path.replace('.md', '.html'), contents)
+            console.log('Finish...🚀')
+        }
+        break
+    case 'serve':
+        if (!(args.length === 2)) { // args not found
+            console.error('File Not Found')
+            break
+        }
+        {
+            const path = args[1]
+            Kurit.log(`Serving ${path} at http://localhost:4101/${path.substring(path.lastIndexOf('/')+1)}`)
+            Kurit.devserver(path)
+        }
         break
     case 'version':
         console.log(Kurit.version)
@@ -26,6 +39,7 @@ switch (args[0]) { // SubCommands
 
 Commands:
     build [path] - Markdown to HTML
+    serve [path] - Display HTML on the devserver
     version - Kurit Version
     about - Kurit About
 `)

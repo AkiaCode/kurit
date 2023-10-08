@@ -9,5 +9,6 @@ edition = "2021"
 deno_core.workspace = true
 tokio.workspace = true
 kurit-template.workspace = true
+kurit-devserver.workspace = true
 
 markdown = "1.0.0-alpha.14"

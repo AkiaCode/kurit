@@ -19,6 +19,11 @@ declare namespace Kurit {
     export function warn(...args: any): void
     export function error(...args: any): void
     /**
+     * Kurit DevServer
+     * @param path Path with .html extension 
+     */
+    export function devserver(path: String): void
+    /**
      * Markdown to HTML
      * @param name WebSite Name
      * @param contents Markdown File Contents

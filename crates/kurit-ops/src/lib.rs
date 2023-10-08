@@ -1,3 +1,5 @@
+use std::path::Path;
+
 use deno_core::{
     error::{generic_error, AnyError},
     op2, Extension, Op, OpState,
@@ -13,6 +15,7 @@ pub fn ops_extension() -> Extension {
             op_version::DECL,
             op_args::DECL,
             op_md_to_html::DECL,
+            op_devserver::DECL,
             crate::fs::op_fs_version::DECL,
             crate::fs::op_read_file::DECL,
             crate::fs::op_write_file::DECL,
@@ -53,4 +56,15 @@ fn op_md_to_html(#[string] name: String, #[string] contents: &str) -> Result<Str
     .or_else(|err| Err(generic_error(err)))?;
     // TODO: Change Template API
     return Ok(KuritDefault::html(name, html));
+}
+
+#[op2(fast)]
+fn op_devserver(#[string] path: String) -> Result<(), AnyError>  {
+    let path = if let Some(path) = Path::new(&path).parent() {
+        path.to_string_lossy()
+    } else {
+        std::borrow::Cow::Borrowed("./")
+    };
+    kurit_devserver::run("localhost", 4101, &path, false, "Server: Kurit");
+    return Ok(());
 }

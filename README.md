@@ -17,6 +17,17 @@ static website generator
 Finish...🚀
 ```
 
+## Serve
+```sh
+~/kurit$ cargo run --release -- serve ./tests/profile.html
+   Compiling kurit-js v0.1.0 (/Volumes/Seritka/github/kurit/crates/kurit-js)
+   Compiling kurit-runtime v0.1.0 (/Volumes/Seritka/github/kurit/crates/kurit-runtime)
+   Compiling kurit v0.1.0 (/Volumes/Seritka/github/kurit/crates/kurit)
+    Finished release [optimized] target(s) in 8.77s
+     Running `target/release/kurit serve ./tests/profile.html`
+[kurit-log]: Serving ./tests/profile.html at http://localhost:4101/profile.html
+```
+
 ## Run
 ```sh
 ~/kurit$ cargo run --release
