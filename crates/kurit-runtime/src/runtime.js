@@ -58,5 +58,5 @@
       }
     }
   
-  delete Deno // We Love Deno!
+  delete Deno.core // We Love Deno!
 })(globalThis)

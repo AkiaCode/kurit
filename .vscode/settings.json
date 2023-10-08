@@ -1,10 +1,15 @@
 {
+    // Rust
     "rust-analyzer.linkedProjects": [
-        "./crates/kurit-template/Cargo.toml",
         "./crates/kurit/Cargo.toml",
-        "./crates/kurit/Cargo.toml",
-        "./crates/kurit/Cargo.toml",
-        "./crates/kurit/Cargo.toml"
+        "./crates/kurit-js/Cargo.toml",
+        "./crates/kurit-ops/Cargo.toml",
+        "./crates/kurit-runtime/Cargo.toml",
+        "./crates/kurit-template/Cargo.toml"
     ],
-    "rust-analyzer.showUnlinkedFileNotification": false
+    "rust-analyzer.showUnlinkedFileNotification": false,
+    // Deno
+    "deno.enablePaths": ["./crates/kurit-runtime/src/runtime.js"],
+    "deno.lint": true,
+    "deno.config": "./deno.jsonc"
 }
