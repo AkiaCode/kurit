@@ -15,6 +15,7 @@ pub fn ops_extension() -> Extension {
             op_version::DECL,
             op_args::DECL,
             op_md_to_html::DECL,
+            op_template::DECL,
             op_devserver::DECL,
             crate::fs::op_fs_version::DECL,
             crate::fs::op_read_file::DECL,
@@ -56,6 +57,40 @@ fn op_md_to_html(#[string] name: String, #[string] contents: &str) -> Result<Str
     .or_else(|err| Err(generic_error(err)))?;
     // TODO: Change Template API
     return Ok(KuritDefault::html(name, html));
+}
+
+// TODO: Make Template System
+enum Templates {
+    Default,
+    Kafu
+}
+
+impl Templates {
+    fn check(name: String) -> Option<Templates> {
+        match name.to_lowercase().as_str() {
+            "default" => Some(Templates::Default),
+            "kafu" => Some(Templates::Kafu),
+            _ => None
+        }
+    }
+
+    #[warn(dead_code)]
+    fn to_tmpl(tmpl: Templates) -> impl Template {
+        match tmpl {
+            Templates::Default => KuritDefault {},
+            Templates::Kafu => todo!(),
+        }
+    }
+}
+
+#[op2(fast)]
+fn op_template(state: &mut OpState, #[string] name: String) -> Result<(), AnyError> {
+    if let Some(name) = Templates::check(name) {
+        state.put(name);
+        Ok(())
+    } else {
+        Err(deno_core::error::bad_resource_id())
+    }
 }
 
 #[op2(fast)]
