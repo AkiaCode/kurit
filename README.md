@@ -1,5 +1,12 @@
 # Kurit
+<div align="center">
+  <img src="./assets/logo.png" width="300"/>
+  <h3>Static website generator :rocket:</h3>
+</div>
 static website generator
+
+> [!WARNING] 
+> WIP: It is still under development, so some of the features may not be developed.
 
 ## Clone
 ```sh
