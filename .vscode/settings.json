@@ -12,5 +12,5 @@
     // Deno
     "deno.enablePaths": ["./crates/kurit-runtime/src/runtime.js"],
     "deno.lint": true,
-    "deno.config": "./.vsoode/deno.jsonc"
+    "deno.path" : "/opt/homebrew/bin/deno"
 }

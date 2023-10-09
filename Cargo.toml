@@ -1,6 +1,7 @@
 [workspace]
 resolver = "2"
 members = ["crates/*"]
+exclude = ["docs/*", "tests/*", "assets/*", ".vscode/*"]
 
 [workspace.dependencies]
 deno_core = { version = "0.221.0", default-features = false }
