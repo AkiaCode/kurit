@@ -62,4 +62,20 @@ Finish...🚀
 	/lib64/ld-linux-x86-64.so.2 (0x00007fe2146df000)
 ```
 
+### Small File
+```sh
+~/kurit$ cargo bloat --release --crates -n 10
+   Compiling kurit-ops v0.1.0 (/Volumes/Seritka/github/kurit/crates/kurit-ops)
+   Compiling kurit-runtime v0.1.0 (/Volumes/Seritka/github/kurit/crates/kurit-runtime)
+   Compiling kurit v0.1.0 (/Volumes/Seritka/github/kurit/crates/kurit)
+    Finished release [optimized] target(s) in 15.91s
+    Analyzing target/release/kurit
+
+ File  .text    Size Crate
+56.3% 100.1% 17.0MiB [Unknown]
+56.3% 100.0% 17.0MiB .text section size, the file size is 30.2MiB
+
+Note: numbers above are a result of guesswork. They are not 100% correct and never will be.
+```
+
 ### Zero-config
