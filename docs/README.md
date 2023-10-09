@@ -1,14 +1,13 @@
 <div align="center">
-<h1>Kurit</h1>
-<img src="./assets/logo.png" width="300"/>
-<h3>Static website generator 🚀</h3>
-<blockquote>
-  <p><strong>WIP</strong>: It is still under development, so some of the features may not be developed.</p>
-</blockquote>
-</div>
-
-## Project Structures
+  <h1>Kurit</h1>
+  <img src="./assets/logo.png" width="300"/>
+  <h3>Static website generator 🚀</h3>
+  <blockquote>
+    <p><strong>WIP</strong>: It is still under development, so some of the features may not be developed.</p>
+  </blockquote>
+  <h2>Project Structures</h2>
   <img src="./assets/mermaid-chart.png" width="530"/>
+</div>
 
 
 ## Clone
