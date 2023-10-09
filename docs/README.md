@@ -1,23 +1,14 @@
 # Kurit
 <div align="center">
   <img src="./assets/logo.png" width="300"/>
-  <h3>Static website generator :rocket:</h3>
+  <h3>Static website generator 🚀</h3>
 </div>
 
 > [!WARNING] 
 > **WIP**: It is still under development, so some of the features may not be developed.
 
 ## Project Structures
-```mermaid
-graph TD;
-  kurit-runtime-->kurit;
-  kurit-ops-->kurit-runtime;
-  kurit-js-->kurit-runtime;
-  lib.kurit.d.ts-->kurit-js;
-  runtime.js-->kurit-js;
-  kurit-filesystem-->kurit-ops;
-  kurit-devserver-->kurit-ops;
-```
+<img src="./assets/mermaid-chart.png"/>
 
 ## Clone
 ```sh
