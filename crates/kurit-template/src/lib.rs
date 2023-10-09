@@ -39,7 +39,20 @@ impl Template for Kafu {
     }
 
     fn html(&self, title: String, body: String) -> String {
-        KuritDefault::new().html(title, body)
+        format!(
+            "<html>
+    <head>
+        <style>
+{css}
+        </style>
+        <title>{title}</title>
+    </head>
+    <body>
+        {body}
+    </body>
+</html>",
+            css = self.css()
+        )
     }
 }
 
