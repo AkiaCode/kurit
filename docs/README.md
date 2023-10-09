@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Kurit
 <div align="center">
   <img src="./assets/logo.png" width="300"/>
@@ -7,7 +11,9 @@
 > **WIP**: It is still under development, so some of the features may not be developed.
 
 ## Project Structures
-<img src="./assets/mermaid-chart.png" width="530"/>
+<div align="center">
+  <img src="./assets/mermaid-chart.png" width="530"/>
+</div>
 
 ## Clone
 ```sh
