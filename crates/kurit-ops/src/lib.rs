@@ -1,7 +1,7 @@
 use std::path::Path;
 
 use deno_core::{
-    error::{generic_error, bad_resource_id, AnyError},
+    error::{bad_resource_id, generic_error, AnyError},
     op2, Extension, Op, OpState,
 };
 use kurit_template::{KuritDefault, Template, Templates};
@@ -30,19 +30,23 @@ pub fn ops_extension() -> Extension {
 #[op2]
 #[string]
 fn op_version() -> String {
-    return "0.1.0-beta".into();
+    "0.1.0-beta".into()
 }
 
 #[op2]
 #[string]
 fn op_args(_state: &mut OpState) -> String {
     let args = std::env::args();
-    return args.collect::<Vec<String>>().join(" ");
+    args.collect::<Vec<String>>().join(" ")
 }
 
 #[op2]
 #[string]
-fn op_md_to_html(_state: &mut OpState, #[string] name: String, #[string] contents: &str) -> Result<String, AnyError> {
+fn op_md_to_html(
+    _state: &mut OpState,
+    #[string] name: String,
+    #[string] contents: &str,
+) -> Result<String, AnyError> {
     let html = markdown::to_html_with_options(
         contents,
         &Options {
@@ -54,12 +58,12 @@ fn op_md_to_html(_state: &mut OpState, #[string] name: String, #[string] content
             ..Options::default()
         },
     )
-    .or_else(|err| Err(generic_error(err)))?;
+    .map_err(generic_error)?;
     // TODO: Change Template API
     //if let Some(tmpl) = state.try_take::<Templates>() {
     //   Templates::to_tmpl(tmpl).html(name, html);
     //}
-    return Ok(KuritDefault::new().html(name, html));
+    Ok(KuritDefault::new().html(name, html))
 }
 
 #[op2(fast)]
@@ -73,12 +77,12 @@ fn op_template(state: &mut OpState, #[string] name: String) -> Result<(), AnyErr
 }
 
 #[op2(fast)]
-fn op_devserver(#[string] path: String) -> Result<(), AnyError>  {
+fn op_devserver(#[string] path: String) -> Result<(), AnyError> {
     let path = if let Some(path) = Path::new(&path).parent() {
         path.to_string_lossy()
     } else {
         std::borrow::Cow::Borrowed("./")
     };
     kurit_devserver::run("localhost", 4101, &path, false, "Server: Kurit");
-    return Ok(());
+    Ok(())
 }

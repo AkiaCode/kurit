@@ -4,6 +4,12 @@ use deno_core::error::AnyError;
 
 pub struct Runtime {}
 
+impl Default for Runtime {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl Runtime {
     pub fn new() -> Self {
         Self {}

@@ -1,14 +1,15 @@
 pub trait Template {
-    fn new() -> Self where Self: Sized;
+    fn new() -> Self
+    where
+        Self: Sized;
     fn css(&self) -> String;
     fn html(&self, title: String, body: String) -> String;
 }
 
-
 // TODO: Make Template System
 pub enum Templates {
     Default,
-    Kafu
+    Kafu,
 }
 
 impl Templates {
@@ -16,7 +17,7 @@ impl Templates {
         match name.to_lowercase().as_str() {
             "default" => Some(Templates::Default),
             "kafu" => Some(Templates::Kafu),
-            _ => None
+            _ => None,
         }
     }
 
@@ -32,7 +33,7 @@ pub struct Kafu {}
 
 impl Template for Kafu {
     fn new() -> Self {
-        Kafu {  }
+        Kafu {}
     }
     fn css(&self) -> String {
         include_str!("deps/normailze.css/normalize.css").into()
@@ -56,14 +57,11 @@ impl Template for Kafu {
     }
 }
 
-
-
-
 pub struct KuritDefault {}
 
 impl Template for KuritDefault {
     fn new() -> Self {
-        KuritDefault {  }
+        KuritDefault {}
     }
     fn css(&self) -> String {
         "".into()
