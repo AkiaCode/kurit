@@ -1,11 +1,14 @@
+<div align="center">
 # Kurit
 <img src="./assets/logo.png" width="300"/>
 <h3>Static website generator 🚀</h3>
 
 > **WIP**: It is still under development, so some of the features may not be developed.
+</div>
 
 ## Project Structures
-<img src="./assets/mermaid-chart.png" width="530"/>
+  <img src="./assets/mermaid-chart.png" width="530"/>
+
 
 ## Clone
 ```sh
