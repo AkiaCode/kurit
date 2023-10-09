@@ -4,11 +4,10 @@
   <h3>Static website generator 🚀</h3>
 </div>
 
-> [!WARNING] 
 > **WIP**: It is still under development, so some of the features may not be developed.
 
 ## Project Structures
-<img src="./assets/mermaid-chart.png"/>
+<img src="./assets/mermaid-chart.png" width="530"/>
 
 ## Clone
 ```sh
