@@ -1,6 +1,6 @@
 <div align="center">
   <h1>Kurit</h1>
-  <img src="./assets/logo.png" width="300"/>
+  <img src="/assets/apple-icon.png" width="300"/>
   <h3>Static website generator 🚀</h3>
   <blockquote>
     <p><strong>WIP</strong>: It is still under development, so some of the features may not be developed.</p>
