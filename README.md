@@ -13,6 +13,9 @@ graph TD;
   kurit-runtime-->kurit;
   kurit-ops-->kurit-runtime;
   kurit-js-->kurit-runtime;
+  lib.kurit.d.ts-->kurit-js;
+  runtime.js-->kurit-js;
+  kurit-filesystem-->kurit-ops;
   kurit-devserver-->kurit-ops;
 ```
 
