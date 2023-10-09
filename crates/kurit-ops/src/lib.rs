@@ -83,6 +83,6 @@ fn op_devserver(#[string] path: String) -> Result<(), AnyError> {
     } else {
         std::borrow::Cow::Borrowed("./")
     };
-    kurit_devserver::run("localhost", 4101, &path, false, "Server: Kurit");
+    kurit_devserver::run("localhost", 4101, &path, false, "\n\rServer: Kurit");
     Ok(())
 }
