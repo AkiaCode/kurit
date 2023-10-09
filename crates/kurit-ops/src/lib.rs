@@ -4,7 +4,7 @@ use deno_core::{
     error::{generic_error, bad_resource_id, AnyError},
     op2, Extension, Op, OpState,
 };
-use kurit_template::{KuritDefault, Template};
+use kurit_template::{KuritDefault, Template, Templates};
 use markdown::Options;
 mod fs;
 
@@ -42,7 +42,7 @@ fn op_args(_state: &mut OpState) -> String {
 
 #[op2]
 #[string]
-fn op_md_to_html(#[string] name: String, #[string] contents: &str) -> Result<String, AnyError> {
+fn op_md_to_html(_state: &mut OpState, #[string] name: String, #[string] contents: &str) -> Result<String, AnyError> {
     let html = markdown::to_html_with_options(
         contents,
         &Options {
@@ -56,13 +56,16 @@ fn op_md_to_html(#[string] name: String, #[string] contents: &str) -> Result<Str
     )
     .or_else(|err| Err(generic_error(err)))?;
     // TODO: Change Template API
+    //if let Some(tmpl) = state.try_take::<Templates>() {
+    //   Templates::to_tmpl(tmpl).html(name, html);
+    //}
     return Ok(KuritDefault::new().html(name, html));
 }
 
 #[op2(fast)]
 fn op_template(state: &mut OpState, #[string] name: String) -> Result<(), AnyError> {
     if let Some(name) = kurit_template::Templates::check(name) {
-        state.put(name);
+        state.put::<Templates>(name);
         Ok(())
     } else {
         Err(bad_resource_id())
