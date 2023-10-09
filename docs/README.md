@@ -1,10 +1,10 @@
 <div align="center">
-# Kurit
+<h1>Kurit</h1>
 <img src="./assets/logo.png" width="300"/>
 <h3>Static website generator 🚀</h3>
+</div>
 
 > **WIP**: It is still under development, so some of the features may not be developed.
-</div>
 
 ## Project Structures
   <img src="./assets/mermaid-chart.png" width="530"/>
