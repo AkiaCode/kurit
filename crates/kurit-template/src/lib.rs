@@ -1,6 +1,7 @@
 pub trait Template {
-    fn css() -> String;
-    fn html(title: String, body: String) -> String;
+    fn new() -> Self where Self: Sized;
+    fn css(&self) -> String;
+    fn html(&self, title: String, body: String) -> String;
 }
 
 
@@ -19,21 +20,42 @@ impl Templates {
         }
     }
 
-    pub fn to_tmpl(tmpl: Templates) -> impl Template {
+    pub fn to_tmpl(tmpl: Templates) -> Box<dyn Template> {
         match tmpl {
-            Templates::Default => KuritDefault {},
-            Templates::Kafu => todo!(),
+            Templates::Default => Box::new(KuritDefault::new()),
+            Templates::Kafu => Box::new(Kafu::new()),
         }
     }
 }
 
+pub struct Kafu {}
+
+impl Template for Kafu {
+    fn new() -> Self {
+        Kafu {  }
+    }
+    fn css(&self) -> String {
+        include_str!("deps/normailze.css/normalize.css").into()
+    }
+
+    fn html(&self, title: String, body: String) -> String {
+        KuritDefault::new().html(title, body)
+    }
+}
+
+
+
+
 pub struct KuritDefault {}
 
 impl Template for KuritDefault {
-    fn css() -> String {
-        include_str!("deps/normailze.css/normalize.css").into()
+    fn new() -> Self {
+        KuritDefault {  }
     }
-    fn html(title: String, body: String) -> String {
+    fn css(&self) -> String {
+        "".into()
+    }
+    fn html(&self, title: String, body: String) -> String {
         format!(
             "<html>
     <head>
@@ -46,7 +68,7 @@ impl Template for KuritDefault {
         {body}
     </body>
 </html>",
-            css = KuritDefault::css()
+            css = self.css()
         )
     }
 }

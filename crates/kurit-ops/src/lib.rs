@@ -1,7 +1,7 @@
 use std::path::Path;
 
 use deno_core::{
-    error::{generic_error, AnyError},
+    error::{generic_error, bad_resource_id, AnyError},
     op2, Extension, Op, OpState,
 };
 use kurit_template::{KuritDefault, Template};
@@ -56,7 +56,7 @@ fn op_md_to_html(#[string] name: String, #[string] contents: &str) -> Result<Str
     )
     .or_else(|err| Err(generic_error(err)))?;
     // TODO: Change Template API
-    return Ok(KuritDefault::html(name, html));
+    return Ok(KuritDefault::new().html(name, html));
 }
 
 #[op2(fast)]
@@ -65,7 +65,7 @@ fn op_template(state: &mut OpState, #[string] name: String) -> Result<(), AnyErr
         state.put(name);
         Ok(())
     } else {
-        Err(deno_core::error::bad_resource_id())
+        Err(bad_resource_id())
     }
 }
 
