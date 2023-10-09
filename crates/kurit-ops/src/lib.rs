@@ -59,33 +59,9 @@ fn op_md_to_html(#[string] name: String, #[string] contents: &str) -> Result<Str
     return Ok(KuritDefault::html(name, html));
 }
 
-// TODO: Make Template System
-enum Templates {
-    Default,
-    Kafu
-}
-
-impl Templates {
-    fn check(name: String) -> Option<Templates> {
-        match name.to_lowercase().as_str() {
-            "default" => Some(Templates::Default),
-            "kafu" => Some(Templates::Kafu),
-            _ => None
-        }
-    }
-
-    #[warn(dead_code)]
-    fn to_tmpl(tmpl: Templates) -> impl Template {
-        match tmpl {
-            Templates::Default => KuritDefault {},
-            Templates::Kafu => todo!(),
-        }
-    }
-}
-
 #[op2(fast)]
 fn op_template(state: &mut OpState, #[string] name: String) -> Result<(), AnyError> {
-    if let Some(name) = Templates::check(name) {
+    if let Some(name) = kurit_template::Templates::check(name) {
         state.put(name);
         Ok(())
     } else {
