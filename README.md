@@ -7,6 +7,15 @@
 > [!WARNING] 
 > **WIP**: It is still under development, so some of the features may not be developed.
 
+## Project Structures
+```mermaid
+graph TD;
+  kurit-runtime-->kurit;
+  kurit-ops-->kurit-runtime;
+  kurit-js-->kurit-runtime;
+  kurit-devserver-->kurit-ops;
+```
+
 ## Clone
 ```sh
 ~/$ git clone --recursive https://github.com/AkiaCode/kurit && cd ./kurit
