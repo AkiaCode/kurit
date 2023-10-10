@@ -1,12 +1,17 @@
 [package]
 name = "kurit-runtime"
-version = "0.1.1-alpha.0"
+version = "0.1.0"
 edition = "2021"
+description = "Kurit Runtime"
+license = "Apache-2.0"
+repository = "https://github.com/AkiaCode/kurit/tree/main/crates/kurit-runtime"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 deno_core.workspace = true
 tokio.workspace = true
-kurit-js.workspace = true
-kurit-ops.workspace = true
+#kurit-js.workspace = true
+kurit-js = "0.1.0"
+#kurit-ops.workspace = true
+kurit-ops = "0.1.0"

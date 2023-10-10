@@ -1,14 +1,19 @@
 [package]
 name = "kurit-ops"
-version = "0.1.1-alpha.0"
+version = "0.1.0"
 edition = "2021"
+description = "Kurit Ops"
+license = "Apache-2.0"
+repository = "https://github.com/AkiaCode/kurit/tree/main/crates/kurit-ops"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 deno_core.workspace = true
 tokio.workspace = true
-kurit-template.workspace = true
-kurit-devserver.workspace = true
+#kurit-template.workspace = true
+kurit-template = "0.1.0"
+#kurit-devserver.workspace = true
+kurit-devserver = "0.1.0"
 
 markdown = "1.0.0-alpha.14"
