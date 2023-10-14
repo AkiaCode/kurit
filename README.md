@@ -19,6 +19,11 @@ graph TD;
   kurit-devserver-->kurit-ops;
 ```
 
+## Installation
+```sh
+cargo install kurit
+```
+
 ## Clone
 ```sh
 ~/$ git clone --recursive https://github.com/AkiaCode/kurit && cd ./kurit
