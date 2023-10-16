@@ -11,9 +11,7 @@ repository = "https://github.com/AkiaCode/kurit/tree/main/crates/kurit-ops"
 [dependencies]
 deno_core.workspace = true
 tokio.workspace = true
-#kurit-template.workspace = true
-kurit-template = "0.1.0"
-#kurit-devserver.workspace = true
-kurit-devserver = "0.1.0"
+kurit-template.workspace = true
+kurit-devserver.workspace = true
 
 markdown = "1.0.0-alpha.14"

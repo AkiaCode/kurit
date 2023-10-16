@@ -11,7 +11,5 @@ repository = "https://github.com/AkiaCode/kurit/tree/main/crates/kurit-runtime"
 [dependencies]
 deno_core.workspace = true
 tokio.workspace = true
-#kurit-js.workspace = true
-kurit-js = "0.1.0"
-#kurit-ops.workspace = true
-kurit-ops = "0.1.0"
+kurit-js.workspace = true
+kurit-ops.workspace = true

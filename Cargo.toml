@@ -4,7 +4,7 @@ members = ["crates/*"]
 exclude = ["docs/*", "tests/*", "assets/*", ".vscode/*"]
 
 [workspace.dependencies]
-deno_core = { version = "0.221.0", default-features = false }
+deno_core = { version = "0.222.0", default-features = false }
 tokio = { version = "1.32.0", default-features = false }
 
 kurit-js = { path = "./crates/kurit-js" }
