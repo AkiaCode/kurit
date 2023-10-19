@@ -4,22 +4,12 @@ const args = Kurit.args.slice(1) // kurit [subcommand] [...args]
 
 switch (args[0]) { // SubCommands
     case 'build':
-        if (!(args.length === 2)) { // args not found
-            console.error('SubCommand Not Found')
-            break
-        }
-        switch (args[1]) { // multi file support
-            case 'md':
-                { // scope
-                    const path = args[2]
-                    const filename = path.substring(path.lastIndexOf('/')+1).replace('.md', '')
-                    const contents = Kurit.md_to_html(filename, await Kurit.fs.readFile(path))
-                    await Kurit.fs.writeFile(path.replace('.md', '.html'), contents)
-                    console.log('Finish...🚀')
-                }
-                break
-            default:
-                break
+        {
+            const path = args[1]
+            const filename = path.substring(path.lastIndexOf('/')+1).replace('.md', '')
+            const contents = Kurit.md_to_html(filename, await Kurit.fs.readFile(path))
+            await Kurit.fs.writeFile(path.replace('.md', '.html'), contents)
+            console.log('Finish...🚀')
         }
         break
     case 'serve':
